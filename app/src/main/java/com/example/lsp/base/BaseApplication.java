@@ -15,6 +15,9 @@ import java.io.IOException;
 public class BaseApplication extends Application {
     private BaseApplication instance;
     private static Context context;
+    public synchronized BaseApplication getInstance() {
+        return instance;
+    }
 
     @Override
     public void onCreate() {
@@ -29,7 +32,6 @@ public class BaseApplication extends Application {
     public static Context getContext() {
         return context;
     }
-
     /**
      * 获取进程号对应的进程名
      *
